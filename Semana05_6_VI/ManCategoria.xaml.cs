@@ -66,14 +66,36 @@ namespace Semana05_6_VI
             }
         }
 
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            BCategoria Bcategoria = null;
+            bool result = true;
+
+            try
+            {
+                Bcategoria = new BCategoria();
+                if (ID > 0)
+                    result = Bcategoria.Eliminar(ID);
+                if (!result)
+                    MessageBox.Show("error en elresultado");
+                Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Comunicarse Grabar");
+
+            }
+            finally
+            {
+                Bcategoria = null;
+            }
+        }
+
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
